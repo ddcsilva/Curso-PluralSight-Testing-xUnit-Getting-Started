@@ -81,4 +81,29 @@ public class JogadorTestes
     }
 
     // Number Asserts
+    [Fact]
+    public void IniciaComSaudePadrao()
+    {
+        Jogador sut = new Jogador();
+
+        Assert.Equal(100, sut.Saude);
+    }
+
+    [Fact]
+    public void IniciaComSaudeDiferenteZero()
+    {
+        Jogador sut = new Jogador();
+
+        Assert.NotEqual(0, sut.Saude);
+    }
+
+    [Fact]
+    public void AumentaSaudeDepoisDeDormir()
+    {
+        Jogador sut = new Jogador();
+
+        sut.Dormir(); // Aguarda o aumento da Saude entre 1 a 100
+
+        Assert.InRange(sut.Saude, 101, 200); // Espera um valor de Saúde entre 101 e 200
+    }
 }
