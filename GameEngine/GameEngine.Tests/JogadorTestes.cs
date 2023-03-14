@@ -106,4 +106,13 @@ public class JogadorTestes
 
         Assert.InRange(sut.Saude, 101, 200); // Espera um valor de Saúde entre 101 e 200
     }
+
+    // Null Asserts
+    [Fact]
+    public void NaoPossuiApelidoPorPadrao()
+    {
+        Jogador sut = new Jogador();
+
+        Assert.Null(sut.Apelido);
+    }
 }
