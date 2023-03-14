@@ -7,5 +7,5 @@ public abstract class Inimigo
     public abstract double PoderEspecialTotal { get; }
     public abstract double QuantidadePoderEspecial { get; }
 
-    public double PoderAtaqueEspecialTotal => PoderEspecialTotal / QuantidadePoderEspecial;
+    public double AtaquePoderEspecialTotal => PoderEspecialTotal / QuantidadePoderEspecial;
 }

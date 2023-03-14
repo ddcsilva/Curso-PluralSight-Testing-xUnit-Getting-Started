@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace GameEngine;
+namespace GameEngine.Main;
 
 public class Jogador : INotifyPropertyChanged
 {
