@@ -5,8 +5,10 @@ namespace GameEngine.Tests;
 public class JogadorTestes
 {
     [Fact]
-    public void SejaInexperienteQuandoNovo()
+    public void SejaInexperienteQuandoJogadorNovo()
     {
         Jogador sut = new Jogador();
+
+        Assert.True(sut.Iniciante);
     }
 }
