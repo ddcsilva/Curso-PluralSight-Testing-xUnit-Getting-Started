@@ -115,4 +115,52 @@ public class JogadorTestes
 
         Assert.Null(sut.Apelido);
     }
+
+    // Collection Asserts
+    [Fact]
+    public void PossuiArcoLongo()
+    {
+        Jogador sut = new Jogador();
+
+        Assert.Contains("Arco Longo", sut.Armas);
+    }
+
+    [Fact]
+    public void NaoPossuiCajadoSimples()
+    {
+        Jogador sut = new Jogador();
+
+        Assert.DoesNotContain("Cajado Simples", sut.Armas);
+    }
+
+    [Fact]
+    public void PossuiPeloMenosUmTipoDeEspada()
+    {
+        Jogador sut = new Jogador();
+
+        Assert.Contains(sut.Armas, arma => arma.Contains("Espada"));
+    }
+
+    [Fact]
+    public void PossuiTodasAsArmas()
+    {
+        Jogador sut = new Jogador();
+
+        var armasEsperadas = new[]
+        {
+            "Arco Longo",
+            "Arco Curto",
+            "Espada Curta"
+        };
+
+        Assert.Equal(armasEsperadas, sut.Armas);
+    }
+
+    [Fact]
+    public void PossuiArmasPorPadrao()
+    {
+        Jogador sut = new Jogador();
+
+        Assert.All(sut.Armas, arma => Assert.False(string.IsNullOrWhiteSpace(arma)));
+    }
 }
