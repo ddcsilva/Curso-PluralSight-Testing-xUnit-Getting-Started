@@ -89,4 +89,23 @@ public class InimigoFactoryTestes
 
         Assert.Equal("Zombie", ex.NomeInimigoSolicitado);
     }
+
+    [Fact]
+    public void EventoJogadorDormindo()
+    {
+        Jogador sut = new Jogador();
+
+        Assert.Raises<EventArgs>(
+            handler => sut.Dormindo += handler,
+            handler => sut.Dormindo -= handler,
+            () => sut.Dormir());
+    }
+
+    [Fact]
+    public void RaisePropertyChangedEvent()
+    {
+        Jogador sut = new Jogador();
+
+        Assert.PropertyChanged(sut, "Saude", () => sut.LevaDano(10));
+    }
 }
