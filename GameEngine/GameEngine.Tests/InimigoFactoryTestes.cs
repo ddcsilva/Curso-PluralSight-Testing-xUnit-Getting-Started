@@ -4,7 +4,7 @@ namespace GameEngine.Tests;
 
 public class InimigoFactoryTestes
 {
-    // Floating Object Types
+    // Object Types Asserts
     [Fact]
     public void CriaMonstroPorPadrao()
     {
@@ -57,5 +57,17 @@ public class InimigoFactoryTestes
         Inimigo inimigo = sut.Criar("Zombie King", true);
 
         Assert.IsAssignableFrom<Inimigo>(inimigo);
+    }
+
+    // Object Instances Asserts
+    [Fact]
+    public void VerificaObjetosDistintos()
+    {
+        InimigoFactory sut = new InimigoFactory();
+
+        Inimigo inimigo1 = sut.Criar("Zombie");
+        Inimigo inimigo2 = sut.Criar("Zombie");
+
+        Assert.NotSame(inimigo1, inimigo2);
     }
 }
