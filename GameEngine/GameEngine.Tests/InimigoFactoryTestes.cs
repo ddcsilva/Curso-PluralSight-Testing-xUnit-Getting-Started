@@ -70,4 +70,23 @@ public class InimigoFactoryTestes
 
         Assert.NotSame(inimigo1, inimigo2);
     }
+
+    // Exception Asserts
+    [Fact]
+    public void ExcecaoNomeNulo()
+    {
+        InimigoFactory sut = new InimigoFactory();
+
+        Assert.Throws<ArgumentNullException>("nome", () => sut.Criar(null));
+    }
+
+    [Fact]
+    public void ExcecaoApenasKingQueenComoNomeInimigo()
+    {
+        InimigoFactory sut = new InimigoFactory();
+
+        CriacaoInimigoException ex = Assert.Throws<CriacaoInimigoException>(() => sut.Criar("Zombie", true));
+
+        Assert.Equal("Zombie", ex.NomeInimigoSolicitado);
+    }
 }
